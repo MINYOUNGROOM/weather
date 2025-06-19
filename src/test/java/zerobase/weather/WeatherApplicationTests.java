@@ -12,6 +12,7 @@ class WeatherApplicationTests {
 		Assertions.assertEquals(1,1);
 	}
 
+
 	@Test
 	void nullTest() {
 		Assertions.assertNull(null);

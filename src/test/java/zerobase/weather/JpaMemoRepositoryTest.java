@@ -9,7 +9,6 @@ import zerobase.weather.domain.Memo;
 import zerobase.weather.repository.JpaMemoRepository;
 
 import java.util.List;
-import java.util.Optional;
 
 @SpringBootTest
 @Transactional

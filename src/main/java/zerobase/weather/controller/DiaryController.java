@@ -1,6 +1,12 @@
 package zerobase.weather.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.core.Local;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -12,13 +18,15 @@ import java.time.LocalDate;
 import java.util.List;
 
 @RestController
-@AllArgsConstructor
+@RequiredArgsConstructor
+@Tag(name = "Diary API", description = "일기 관련 API")
 public class DiaryController {
 
     @Autowired
     private final DiaryService diaryService;
 
     // 다이어리 작성
+    @Operation(summary = "날씨 일기 작성 API",description = "날씨에 따른 일기 작성이 가능합니다.")
     @PostMapping("/create/diary")
     void createDiary(@RequestParam("date") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date, @RequestBody String text) {
         diaryService.createDiary(date, text);
